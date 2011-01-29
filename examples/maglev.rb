@@ -2,13 +2,13 @@ require 'rubygems'
 require 'pathname'
 
 root_path = Pathname(__FILE__).dirname.join('..').expand_path
-lib_path  = root_path.join('lib')
+lib_path  = root_path.join('lib').to_s
 $:.unshift(lib_path)
 
-require 'adapter/redis'
+require 'adapter/maglev'
 
-client  = Redis.new
-adapter = Adapter[:redis].new(client)
+client  = Maglev::PERSISTENT_ROOT
+adapter = Adapter[:maglev].new(client)
 adapter.clear
 
 adapter.write('foo', 'bar')

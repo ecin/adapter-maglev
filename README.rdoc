@@ -1,6 +1,6 @@
-= adapter-redis
+= adapter-maglev
 
-Redis adapter for adapter gem.
+Maglev adapter for adapter gem.
 
 See examples/ or specs/ for usage.
 
